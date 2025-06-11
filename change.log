@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="hy">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Miréa Luxury Parfum</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f9f6f2;
+      color: #333;
+    }
+
+    header {
+      background-color: #2c2c2c;
+      color: #fff;
+      padding: 10px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0;
+      font-family: 'Georgia', serif;
+      font-size: 2em;
+    }
+
+    .lang-switcher a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 10px;
+      padding: 5px 8px;
+      border-radius: 4px;
+      background-color: #444;
+      transition: background-color 0.3s;
+      cursor: pointer;
+    }
+
+    .lang-switcher a:hover {
+      background-color: #777;
+    }
+
+    nav {
+      background-color: #444;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 5px 15px;
+      font-weight: bold;
+      transition: color 0.3s;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      color: #e0bebe;
+    }
+
+    .container {
+      padding: 30px;
+      text-align: center;
+    }
+
+    .category {
+      display: inline-block;
+      width: 280px;
+      margin: 20px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      background-color: #fff;
+      transition: transform 0.3s;
+    }
+
+    .category:hover {
+      transform: scale(1.03);
+    }
+
+    .category img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+    }
+
+    .category h3 {
+      margin: 10px;
+      font-size: 1.2em;
+      color: #333;
+    }
+
+    footer {
+      background-color: #2c2c2c;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 id="site-title">Miréa Luxury Parfum</h1>
+    <div class="lang-switcher">
+      <a onclick="setLanguage('hy')">Հայ</a>
+      <a onclick="setLanguage('en')">EN</a>
+      <a onclick="setLanguage('ru')">RU</a>
+    </div>
+  </header>
+
+  <nav>
+    <a id="nav-home">Գլխավոր</a>
+    <a id="nav-women">Կանանց համար</a>
+    <a id="nav-men">Տղամարդկանց համար</a>
+    <a id="nav-unisex">Յունիսեքս</a>
+    <a id="nav-about">Մեր մասին</a>
+    <a id="nav-contact">Կապ մեզ հետ</a>
+  </nav>
+
+  <div class="container">
+    <div class="category">
+      <img src="https://source.unsplash.com/featured/?perfume,woman" alt="Կանանց բույրեր">
+      <h3 id="cat-women">Կանանց բույրեր</h3>
+    </div>
+
+    <div class="category">
+      <img src="https://source.unsplash.com/featured/?perfume,man" alt="Տղամարդկանց բույրեր">
+      <h3 id="cat-men">Տղամարդկանց բույրեր</h3>
+    </div>
+
+    <div class="category">
+      <img src="https://source.unsplash.com/featured/?luxury,perfume" alt="Յունիսեքս">
+      <h3 id="cat-unisex">Յունիսեքս</h3>
+    </div>
+  </div>
+
+  <footer>
+    <p id="footer-text">&copy; 2025 Miréa Luxury Parfum. Բոլոր իրավունքները պաշտպանված են։</p>
+  </footer>
+
+  <script>
+    const translations = {
+      hy: {
+        siteTitle: "Miréa Luxury Parfum",
+        nav: ["Գլխավոր", "Կանանց համար", "Տղամարդկանց համար", "Յունիսեքս", "Մեր մասին", "Կապ մեզ հետ"],
+        categories: ["Կանանց բույրեր", "Տղամարդկանց բույրեր", "Յունիսեքս"],
+        footer: "&copy; 2025 Miréa Luxury Parfum. Բոլոր իրավունքները պաշտպանված են։"
+      },
+      en: {
+        siteTitle: "Miréa Luxury Perfume",
+        nav: ["Home", "For Women", "For Men", "Unisex", "About Us", "Contact"],
+        categories: ["Women's Fragrances", "Men's Fragrances", "Unisex"],
+        footer: "&copy; 2025 Miréa Luxury Perfume. All rights reserved."
+      },
+      ru: {
+        siteTitle: "Miréa Люксовые Духи",
+        nav: ["Главная", "Для женщин", "Для мужчин", "Унисекс", "О нас", "Контакты"],
+        categories: ["Женские ароматы", "Мужские ароматы", "Унисекс"],
+        footer: "&copy; 2025 Miréa Люксовые Духи. Все права защищены."
+      }
+    };
+
+    function setLanguage(lang) {
+      const t = translations[lang];
+      document.getElementById("site-title").textContent = t.siteTitle;
+      document.getElementById("nav-home").textContent = t.nav[0];
+      document.getElementById("nav-women").textContent = t.nav[1];
+      document.getElementById("nav-men").textContent = t.nav[2];
+      document.getElementById("nav-unisex").textContent = t.nav[3];
+      document.getElementById("nav-about").textContent = t.nav[4];
+      document.getElementById("nav-contact").textContent = t.nav[5];
+      document.getElementById("cat-women").textContent = t.categories[0];
+      document.getElementById("cat-men").textContent = t.categories[1];
+      document.getElementById("cat-unisex").textContent = t.categories[2];
+      document.getElementById("footer-text").innerHTML = t.footer;
+    }
+
+    // Default language
+    setLanguage('hy');
+  </script>
+
+</body>
+</html>
