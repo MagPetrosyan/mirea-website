@@ -1,1 +1,1 @@
-https://your-username.github.io/mirea-website
+https://your-MagPetrosyan.github.io/mirea-website
